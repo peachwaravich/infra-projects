@@ -2,7 +2,7 @@
 ## Ref: http://rabbitmq.com/access-control.html
 ##
 rabbitmqUsername: guest
-# rabbitmqPassword:
+rabbitmqPassword: guest
 
 ## RabbitMQ Management user used for health checks
 managementUsername: management
@@ -254,7 +254,7 @@ rabbitmqWebSTOMPPlugin:
 ## Prometheus Plugin
 ## Ref: https://www.rabbitmq.com/prometheus.html
 rabbitmqPrometheusPlugin:
-  enabled: false
+  enabled: true
 
   ## NodePort
   nodePort: null
@@ -274,7 +274,7 @@ rabbitmqPrometheusPlugin:
 ## AMQPS support
 ## Ref: http://www.rabbitmq.com/ssl.html
 rabbitmqAmqpsSupport:
-  enabled: false
+  enabled: true
 
   # NodePort
   amqpsNodePort: 5671
@@ -392,7 +392,7 @@ extraContainers: []
 
 ## Data Persistency
 persistentVolume:
-  enabled: false
+  enabled: true
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
   ## If undefined (the default) or set to null, no storageClassName spec is
@@ -524,7 +524,7 @@ env: {}
 prometheus:
   ## Configures Prometheus Exporter to expose and scrape stats.
   exporter:
-    enabled: false
+    enabled: true
     env: {}
     image:
       repository: kbudde/rabbitmq-exporter
