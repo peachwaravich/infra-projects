@@ -30,7 +30,7 @@ affinity: {}
 
 loglevel: info
 rabbitmq:
-  url: http://165.22.248.113:32360
+  url: http://165.22.248.113:32651
   user: guest
   password: guest
   # If existingPasswordSecret is set then password is ignored
@@ -53,7 +53,7 @@ annotations: {}
 
 prometheus:
   monitor:
-    enabled: false
+    enabled: true
     additionalLabels: {}
     interval: 15s
     namespace: []
