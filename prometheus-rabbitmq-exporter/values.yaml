@@ -53,7 +53,7 @@ annotations: {}
 
 prometheus:
   monitor:
-    enabled: true
+    enabled: false
     additionalLabels: {}
     interval: 15s
     namespace: []
