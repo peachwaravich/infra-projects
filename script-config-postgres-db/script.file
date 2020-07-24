@@ -24,13 +24,20 @@ REVOKE all privileges ON DATABASE $db FROM PUBLIC;
 GRANT all privileges ON DATABASE $db TO $user;
 
 step 5: 
-- pgpool 
+- pgpool
+## update change owner pgpool ## 
+postgres >> pgpool
+and change password default to new password
+< step 2, step 3 >
+
+
 test login user peach on pgpool
 psql -h <pgpool_host> peachdb -U peach
 
 step 6:
 use md5 from pgpool
 pg_md5 -u <username> -m <password>
+
 
 
 ** more **
