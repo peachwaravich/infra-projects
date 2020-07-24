@@ -2,11 +2,11 @@
 ## Ref: http://rabbitmq.com/access-control.html
 ##
 rabbitmqUsername: guest
-rabbitmqPassword: guest
+rabbitmqPassword: DtYT58xzngkCRPGx
 
 ## RabbitMQ Management user used for health checks
 managementUsername: management
-# managementPassword:
+managementPassword: DtYT58xzngkCRPGx
 
 ## Place any additional key/value configuration to add to rabbitmq.conf
 ## Ref: https://www.rabbitmq.com/configure.html#config-items

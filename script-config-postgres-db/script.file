@@ -1,0 +1,38 @@
+create new user and new database 
+on primary server
+
+step 1: 
+create user and db on postgreSQL
+
+sudo -i -u postgres
+createuser peach;
+createdb peachdb;
+
+step 2: 
+psql => change owner postgres to peach
+ALTER DATABASE <target_database> OWNER TO <new_onwer>;
+
+step 3: 
+psql => change default password to new password
+ALTER USER peach WITH PASSWORD 'P@ssw0rd';
+
+
+step 4:
+REVOKE connect ON DATABASE $db FROM PUBLIC;
+GRANT connect ON DATABASE $db TO $user;
+REVOKE all privileges ON DATABASE $db FROM PUBLIC;
+GRANT all privileges ON DATABASE $db TO $user;
+
+step 5: 
+- pgpool 
+test login user peach on pgpool
+psql -h <pgpool_host> peachdb -U peach
+
+step 6:
+use md5 from pgpool
+pg_md5 -u <username> -m <password>
+
+
+** more **
+\du <check_user>
+\l <check_db_list>
