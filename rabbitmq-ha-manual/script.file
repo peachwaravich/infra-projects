@@ -1,0 +1,10 @@
+#create persistance-volume 
+
+kubectl apply -f volumes.yaml
+
+#############################
+
+#helm install rabbitMQ-ha
+
+helm install --name rabitmq -f values.yaml stable/rabbitmq-ha
+
