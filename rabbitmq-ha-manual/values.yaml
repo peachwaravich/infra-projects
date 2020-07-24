@@ -254,7 +254,7 @@ rabbitmqWebSTOMPPlugin:
 ## Prometheus Plugin
 ## Ref: https://www.rabbitmq.com/prometheus.html
 rabbitmqPrometheusPlugin:
-  enabled: true
+  enabled: false
 
   ## NodePort
   nodePort: null
@@ -524,7 +524,7 @@ env: {}
 prometheus:
   ## Configures Prometheus Exporter to expose and scrape stats.
   exporter:
-    enabled: true
+    enabled: false
     env: {}
     image:
       repository: kbudde/rabbitmq-exporter

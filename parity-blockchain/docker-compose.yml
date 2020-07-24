@@ -1,0 +1,48 @@
+version: '2.1'
+services:
+  validator:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 1
+    volumes:
+      - parity-data:/home/parity/.local/share/io.parity.ethereum/chains/${NETWORK_NAME}/db
+      - ./parity/config:/parity/config
+    command:
+      --config /parity/config/authority.toml
+      --engine-signer 0x4581FFE409F7080451EEcDA225941D74aC6fB549
+      --unlock 0x4581FFE409F7080451EEcDA225941D74aC6fB549
+      --ws-interface 0.0.0.0
+      --jsonrpc-interface all
+      --jsonrpc-cors all
+      --no-persistent-txqueue
+      --jsonrpc-hosts all
+      --jsonrpc-server-threads 8
+      --jsonrpc-threads 0
+
+    ports:
+      - 8541:8545
+      - 30303:30303
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.13
+  monitor:
+    image: buythewhale/ethstats_monitor
+    volumes:
+      - ./monitor/app.json:/home/ethnetintel/eth-net-intelligence-api/app.json:ro
+volumes:
+  parity-data:
+
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.0.1/24
+        gateway: 172.16.0.1
+
