@@ -13,8 +13,8 @@ services:
       - ./parity/config:/parity/config
     command:
       --config /parity/config/authority.toml
-      --engine-signer 0x4581FFE409F7080451EEcDA225941D74aC6fB549
-      --unlock 0x4581FFE409F7080451EEcDA225941D74aC6fB549
+      --engine-signer 0xa35f71ab0bfc20418392cc7580ff4b312fd6f1e0
+      --unlock 0xa35f71ab0bfc20418392cc7580ff4b312fd6f1e0
       --ws-interface 0.0.0.0
       --jsonrpc-interface all
       --jsonrpc-cors all
